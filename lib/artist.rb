@@ -1,8 +1,9 @@
 require 'pry'
 require_relative '../lib/concerns/memorable'
+require_relative '../lib/concerns/findable'
 
 class Artist
-  extend Memorable
+  extend Memorable, Findable
   attr_accessor :name
   attr_reader :songs
 
@@ -13,9 +14,9 @@ class Artist
     @songs = []
   end
 
-  def self.find_by_name(name)
-    @@artists.detect{|a| a.name == name}
-  end
+  # def self.find_by_name(name)
+  #   @@artists.detect{|a| a.name == name}
+  # end
 
   def self.all
     @@artists
